@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Sample "Hello, World" Application</title>
+</head>
+
+
+
+<body>
+  <h1 id="bigOne"></h1>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBYeaDIRxVZmuMFzWzeOGgEtZx6TW0cS9k",
+    authDomain: "vinnotify-4cab3.firebaseapp.com",
+    databaseURL: "https://vinnotify-4cab3.firebaseio.com",
+    projectId: "vinnotify-4cab3",
+    storageBucket: "vinnotify-4cab3.appspot.com",
+    messagingSenderId: "201772714587"
+  };
+  firebase.initializeApp(config);
+ 
+ var bigOne = document.getElementById("bigOne");
+ var dbRef = firebase.database().ref().child("user_1");
+ dbRef.on('value',snap =>bigOne.innerHtml=snap.val());
+</script>
+</html>
